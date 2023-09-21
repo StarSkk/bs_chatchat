@@ -127,7 +127,7 @@ docker run -d --gpus all -p 80:8501 registry.cn-beijing.aliyuncs.com/chatchat/ch
 
 除本地模型外，本项目也支持直接接入 OpenAI API、智谱AI等在线模型，具体设置可参考 `configs/model_configs.py.example` 中的 `llm_model_dict` 的配置信息。
 
-在线 LLM 模型目前已支持： 
+在线 LLM 模型目前已支持：
 - [ChatGPT](https://api.openai.com)
 - [智谱AI](http://open.bigmodel.cn)
 - [MiniMax](https://api.minimax.chat)
@@ -264,7 +264,7 @@ embedding_model_dict = {
 text_splitter_dict = {
     "ChineseRecursiveTextSplitter": {
         "source": "huggingface",  ## 选择tiktoken则使用openai的方法,不填写则默认为字符长度切割方法。
-        "tokenizer_name_or_path": "", ## 空格不填则默认使用大模型的分词器。 
+        "tokenizer_name_or_path": "", ## 空格不填则默认使用大模型的分词器。
     }
 }
 ```
@@ -294,6 +294,7 @@ text_splitter_dict = {
 
 ```shell
 $ python startup.py -a
+python startup.py --llm-api
 ```
 
 并可使用 `Ctrl + C` 直接关闭所有运行服务。如果一次结束不了，可以多按几次。
@@ -322,8 +323,8 @@ $ python startup.py --all-webui --model-name Qwen-7B-Chat
 项目支持多卡加载，需在 startup.py 中的 create_model_worker_app 函数中，修改如下三个参数:
 
 ```python
-gpus=None, 
-num_gpus=1, 
+gpus=None,
+num_gpus=1,
 max_gpu_memory="20GiB"
 ```
 

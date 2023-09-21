@@ -22,7 +22,7 @@ embedding_model_dict = {
     "text2vec-multilingual": "shibing624/text2vec-base-multilingual",
     "text2vec-bge-large-chinese": "shibing624/text2vec-bge-large-chinese",
     "m3e-small": "moka-ai/m3e-small",
-    "m3e-base": "moka-ai/m3e-base",
+    "m3e-base": "/mnt/d/gitclone/m3e-base",
     "m3e-large": "moka-ai/m3e-large",
     "bge-small-zh": "BAAI/bge-small-zh",
     "bge-base-zh": "BAAI/bge-base-zh",
@@ -48,7 +48,7 @@ llm_model_dict = {
 
     "chatglm2-6b": {
         "local_model_path": "THUDM/chatglm2-6b",
-        "api_base_url": "http://localhost:8888/v1",  # URL需要与运行fastchat服务端的server_config.FSCHAT_OPENAI_API一致
+        "api_base_url": "http://10.10.22.67:8000/v1",  # URL需要与运行fastchat服务端的server_config.FSCHAT_OPENAI_API一致
         "api_key": "EMPTY"
     },
 
@@ -193,6 +193,9 @@ kbs_config = {
     },
     "pg": {
         "connection_uri": "postgresql://postgres:postgres@127.0.0.1:5432/langchain_chatchat",
+    },
+    "es": {
+        "hosts": "http://10.10.22.67:9200/",
     }
 }
 
